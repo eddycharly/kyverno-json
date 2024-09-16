@@ -2,7 +2,6 @@ package query
 
 import (
 	"context"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -13,6 +12,7 @@ import (
 	"github.com/kyverno/kyverno-json/pkg/command"
 	"github.com/kyverno/kyverno-json/pkg/engine/template"
 	"github.com/spf13/cobra"
+	"k8s.io/apimachinery/pkg/util/json"
 	"sigs.k8s.io/yaml"
 )
 

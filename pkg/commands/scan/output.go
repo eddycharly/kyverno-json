@@ -1,9 +1,10 @@
 package scan
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
+
+	"k8s.io/apimachinery/pkg/util/json"
 
 	jsonengine "github.com/kyverno/kyverno-json/pkg/json-engine"
 )

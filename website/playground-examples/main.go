@@ -2,7 +2,6 @@ package main
 
 import (
 	"cmp"
-	"encoding/json"
 	"fmt"
 	"io/fs"
 	"os"
@@ -10,6 +9,7 @@ import (
 	"slices"
 
 	"gopkg.in/yaml.v2"
+	"k8s.io/apimachinery/pkg/util/json"
 )
 
 type Content struct {

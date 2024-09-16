@@ -1,7 +1,7 @@
 package v1alpha1
 
 import (
-	"encoding/json"
+	"k8s.io/apimachinery/pkg/util/json"
 
 	"github.com/jinzhu/copier"
 )
@@ -9,11 +9,7 @@ import (
 // Any can be any type.
 // +k8s:deepcopy-gen=false
 type Any struct {
-	// Value contains the value of the Any object.
-	// +kubebuilder:pruning:PreserveUnknownFields
-	// +kubebuilder:validation:Schemaless
-	// +optional
-	Value any `json:",inline"`
+	value any
 }
 
 func (in *Any) DeepCopyInto(out *Any) {
@@ -32,7 +28,7 @@ func (in *Any) DeepCopy() *Any {
 }
 
 func (a *Any) MarshalJSON() ([]byte, error) {
-	return json.Marshal(a.Value)
+	return json.Marshal(a.value)
 }
 
 func (a *Any) UnmarshalJSON(data []byte) error {
@@ -41,6 +37,6 @@ func (a *Any) UnmarshalJSON(data []byte) error {
 	if err != nil {
 		return err
 	}
-	a.Value = v
+	a.value = v
 	return nil
 }
